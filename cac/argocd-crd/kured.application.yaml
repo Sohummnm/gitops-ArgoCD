@@ -1,0 +1,22 @@
+#kured application.yaml for argocd
+
+apiVerison: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kured
+  namespace: argocd
+spec:
+  project: platform-engineering
+  source:
+    repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
+    targetRevision: HEAD
+    path: cac/kured
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: kured
+  sysncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
