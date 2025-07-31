@@ -1,0 +1,22 @@
+# application.yaml for gatekeeper argocd crd
+
+apiVersion: argoproj.io/v1alpha1
+kind: application
+metadata:
+  name: gatekeeper
+  namespace: argocd
+spec:
+  project: platform-engineering
+  source:
+    repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
+    targetRevision: HEAD
+    path: cac/gatekeeper
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gatekeeper
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

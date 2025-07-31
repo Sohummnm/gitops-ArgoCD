@@ -1,0 +1,22 @@
+# istio gateway application.yaml for argocd
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata: 
+  name: istio-gateway
+  namespace: argocd
+spec: 
+  project: platform-engineering
+  source:
+    repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
+    targetRevision: HEAD
+    path: cac/istio/gateway
+  destination:
+    server: https://kubernetes.default.svc  
+    namespace: istio-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
