@@ -1,7 +1,7 @@
 # application.yaml for gatekeeper argocd crd
 
 apiVersion: argoproj.io/v1alpha1
-kind: application
+kind: Application
 metadata:
   name: gatekeeper
   namespace: argocd
