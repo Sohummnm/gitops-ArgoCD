@@ -7,4 +7,5 @@ This repository aims at installing tools like gatekeeper, velero, Istio, kured o
 
  3.Istio has three componenents - base, gateway, and istiod. It has been dealt with **app-of-apps** approach.
  Its individual components application.yaml is stored at cac/argocd-crd/istio and root istio application is at 
- argocd-crd folder. This root application.yaml points argocd to apply cac/argocd-crd/istio yamls. 
+ cac/argocd-crd.
+ This root application.yaml points argocd to apply cac/argocd-crd/istio yamls. 
