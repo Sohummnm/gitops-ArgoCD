@@ -1,0 +1,22 @@
+#prometheus application.yaml for argocd
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: argocd
+spec:
+  project: platform-engineering
+  source:
+    repoURL: "https://github.com/Sohummnm/gitops-ArgoCD.git"
+    targetRevision: HEAD
+    path: cac/prometheus
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prometheus
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
