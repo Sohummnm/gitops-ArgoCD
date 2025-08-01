@@ -13,6 +13,7 @@ This repository aims at installing tools like gatekeeper, velero, Istio, kured o
 
 PREREQUISITE 
 1. Have a k8s cluster
-2. Have argocd installed on cluster. OR Install with this
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+2. Have argocd installed on cluster. OR Install with this command
+
+"kubectl create namespace argocd"
+"kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
