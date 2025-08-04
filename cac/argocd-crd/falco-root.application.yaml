@@ -1,0 +1,22 @@
+#Root file to trigger falco application
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: falco-root
+  namespace: argocd
+spec:
+  project: platform-engineering
+  source:
+    repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
+    targetRevision: HEAD
+    path: cac/argocd-crd/falco-apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: falco
+  syncPolicy:
+    automated:  
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
