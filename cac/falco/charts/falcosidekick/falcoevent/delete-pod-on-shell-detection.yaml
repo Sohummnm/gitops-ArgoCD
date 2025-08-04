@@ -11,4 +11,4 @@ spec:
   action:
     type: DeletePod
     parameters:
-      namespace: " "
+      namespace: "falco"
