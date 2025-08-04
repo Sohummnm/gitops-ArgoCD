@@ -1,0 +1,14 @@
+apiVersion: falco.org/v1alpha1
+kind: FalcoEvent
+metadata:
+  name: delete-pod-on-shell-detection
+  namespace: falco
+spec:
+  rule: Terminal shell in container
+  source: syscalls
+  priority: Warning
+  output: "Shell spawned in container (user=%user.name command=%proc.cmdline container=%container.id)"
+  action:
+    type: DeletePod
+    parameters:
+      namespace: " "
