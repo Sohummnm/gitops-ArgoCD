@@ -1,0 +1,23 @@
+#application.yaml for crd FalcoEvent in ArgoCD
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: custom-resource-definition-falcoevent
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: platform-engineering
+  source:
+    repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
+    targetRevision: HEAD
+    path: cac/falco/charts/falcosidekick/crds
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: falco
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
