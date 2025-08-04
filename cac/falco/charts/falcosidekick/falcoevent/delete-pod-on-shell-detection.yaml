@@ -5,10 +5,11 @@ metadata:
   namespace: falco
 spec:
   rule: Terminal shell in container
-  source: syscalls
   priority: Warning
-  output: "Shell spawned in container (user=%user.name command=%proc.cmdline container=%container.id)"
+  output: Shell spawned in container (user=%user.name command=%proc.cmdline container=%container.id)
+  match:
+    outputFields:
+      container.image.repository: "*"
   action:
-    type: DeletePod
-    parameters:
-      namespace: "falco"
+    kubernetes:
+      deletePod: true
