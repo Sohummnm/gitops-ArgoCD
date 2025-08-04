@@ -35,12 +35,13 @@ spec:
   source:
     repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
     targetRevision: HEAD
-    path: cac/falco/charts/falcosideckick
+    path: cac/falco/charts/falcosideckick/falcoevent
   syncPolicy:
     automated:
       selfHeal: true
       prune: true
     syncOptions:
       - CreateNamespace=true
+
 
 
