@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/Sohummnm/gitops-ArgoCD.git
     targetRevision: HEAD
-    path: cac/falco/charts/falcosidekick/falcoevent
+    path: cac/falco/charts/falcosidekick
   syncPolicy:
     automated:
       selfHeal: true
